@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
   <title>Student Grade Table</title>
 </head>
-<body>
-  <header>This is the header</header>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<header>
+  <h1>Student Grade Table</h1>
+</header>
+
+<body>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Student Name</th>
+        <th scope="col">Course</th>
+        <th scope="col">Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+
+  <!--  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <script src="components/grade-table.js"></script>
+  <script src="components/app.js"></script>
   <script src="main.js"></script>
 </body>
+
 </html>
