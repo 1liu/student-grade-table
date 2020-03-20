@@ -9,8 +9,8 @@ class GradeTable{
     if (tbody.hasChildNodes()) {
       tbody.removeChild(tbody.childNodes[0]);
     }
-    var theGrades = grades;
-    for (var student of theGrades){
+
+    for (var student of grades){
       var studentRowElement = document.createElement('tr');
       var studentName = document.createElement('td');
       studentName.textContent  = student.name;
