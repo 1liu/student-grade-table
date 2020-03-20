@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <title>Student Grade Table</title>
 </head>
@@ -22,19 +23,65 @@
 </header>
 
 <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Student Name</th>
+              <th scope="col">Course</th>
+              <th scope="col">Grade</th>
+            </tr>
+          </thead>
+          <tbody>
 
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Student Name</th>
-        <th scope="col">Course</th>
-        <th scope="col">Grade</th>
-      </tr>
-    </thead>
-    <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4">
+        <div class="name row">
+          <div class="col-2">
+            <img src="./assets/icon01.jpg" alt="icon1">
+          </div>
+          <div class="col-10">
+            <input type="text" id="name" name="name" value="" placeholder="Name" size="30">
+          </div>
+        </div>
 
-    </tbody>
-  </table>
+        <div class="course row">
+          <div class="col-2">
+            <img src="./assets/icon02.jpg" alt="icon2">
+          </div>
+          <div class="col-10">
+            <input type="text" id="course" name="course" value="" placeholder="Course" size="30">
+          </div>
+        </div>
+
+        <div class="grade row">
+          <div class="col-2">
+            <img src="./assets/icon03.jpg" alt="icon3">
+          </div>
+          <div class="col-10">
+            <input type="text" id="grade" name="grade" value="" placeholder="Grade" size="30">
+          </div>
+        </div>
+
+        <div class="button row">
+          <div class="col-4">
+          </div>
+          <div class="col-4">
+            <input type="submit" value="Add">
+          </div>
+          <div class="col-4">
+            <input type="reset" value="Cancel">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 
   <!--  -->
