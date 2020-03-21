@@ -10,7 +10,6 @@ class GradeForm {
   }
 
   handleSubmit(event) {
-    console.log("hi");
     event.preventDefault();
     var formData = new FormData(event.target);
     this.createGrade(formData.get('name'), formData.get('course'), formData.get('grade'));
