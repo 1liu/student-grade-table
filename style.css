@@ -9,3 +9,18 @@
 thead {
   background-color: rgba(0, 0, 0, 0.05);
 }
+
+#addButton {
+  color: white;
+  background-color: green;
+  border-radius: 5px;
+}
+
+#cancelButton {
+  border-radius: 5px;
+  background-color: white;
+}
+
+.gradeForm .row{
+  margin-bottom: 1rem;
+}
