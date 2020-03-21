@@ -4,7 +4,7 @@ class GradeTable{
   }
 
   updateGrades(grades){
-    console.log(grades);
+    // console.log(grades);
     var tbody = this.tableElement.querySelector("tbody");
     if (tbody.hasChildNodes()) {
       tbody.removeChild(tbody.childNodes[0]);
