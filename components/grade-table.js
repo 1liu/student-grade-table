@@ -47,7 +47,7 @@ class GradeTable {
     buttons.appendChild(editBtn);
     var delBtn = document.createElement('i');
     delBtn.addEventListener("click", function () {
-      deleteGrade(data.id);
+      deleteGrade(data);
     })
     delBtn.className = "fas fa-trash text-danger ml-3";
     buttons.appendChild(delBtn);
