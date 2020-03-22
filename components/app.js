@@ -1,6 +1,8 @@
 class App {
 
   constructor(gradeTable, pageHeader, gradeForm) {
+    this.grades = null;
+    this.currentId = null;
     this.gradeTable = gradeTable;
     this.pageHeader = pageHeader;
     this.gradeForm = gradeForm;
@@ -33,6 +35,8 @@ class App {
   }
 
   handleGetGradesSuccess(grades) {
+    this.grades = grades;
+    this.currentId = grades[grades.length-1].id;
     this.gradeTable.updateGrades(grades);
     var sum = 0;
     for (var student of grades) {
@@ -65,8 +69,18 @@ class App {
     console.error(error);
   }
 
-  handleCreateGradeSuccess() {
-    this.getGrades();
+  handleCreateGradeSuccess(addedGrade) {
+    console.log("test:", addedGrade);
+    this.addedGrade = addedGrade;
+    this.grades.push(addedGrade);
+
+    this.gradeTable.updateGrades(this.grades);
+    var sum = 0;
+    for (var student of this.grades) {
+      sum += student.grade;
+    }
+    var avg = sum / this.grades.length;
+    this.pageHeader.updateAverage(avg);
   }
 
   deleteGrade(id) {
@@ -113,8 +127,21 @@ class App {
     console.error(error);
   }
 
-  handleEditGradeSuccess() {
-    this.getGrades();
+  handleEditGradeSuccess(editedGrade) {
+    console.log("test:", editedGrade);
+    for (let i = 0; i<this.grades.length;i++){
+      if(this.grades[i].id == editedGrade.id){
+        this.grades[i] = editedGrade;
+      }
+    }
+
+    this.gradeTable.updateGrades(this.grades);
+    var sum = 0;
+    for (var student of this.grades) {
+      sum += student.grade;
+    }
+    var avg = sum / this.grades.length;
+    this.pageHeader.updateAverage(avg);
   }
 
   editGradeClicked(data) {
