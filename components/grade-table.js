@@ -12,7 +12,7 @@ class GradeTable {
     } else {
       tbody.innerHTML = "";
       for (var student of grades) {
-        tbody.append(this.renderGradeRow(student, this.deleteGrade));
+        tbody.append(this.renderGradeRow(student, this.deleteGrade, this.editGradeClicked));
       }
       this.noGradesElement.classList.add("d-none");
     }
@@ -22,7 +22,11 @@ class GradeTable {
     this.deleteGrade = deleteGrade;
   }
 
-  renderGradeRow(data, deleteGrade) {
+  onEditClick(editGradeClicked) {
+    this.editGradeClicked = editGradeClicked;
+  }
+
+  renderGradeRow(data, deleteGrade, editGradeClicked) {
     var studentRowElement = document.createElement('tr');
     var studentName = document.createElement('td');
     studentName.textContent = data.name;
@@ -33,15 +37,20 @@ class GradeTable {
     studentRowElement.append(studentName);
     studentRowElement.append(course);
     studentRowElement.append(grade);
-    var btnTd = document.createElement('td');
-    var btn = document.createElement('button');
-    btn.textContent = "DELETE";
-    btn.className = "btn btn-danger";
-    btnTd.append(btn);
-    studentRowElement.append(btnTd);
-    btn.addEventListener("click", function () {
+    var buttons = document.createElement('td');
+    var editBtn = document.createElement('i');
+    editBtn.addEventListener("click", function () {
+      editGradeClicked(data);
+    })
+    editBtn.className = "fas fa-edit text-success";
+    buttons.appendChild(editBtn);
+    var delBtn = document.createElement('i');
+    delBtn.addEventListener("click", function () {
       deleteGrade(data.id);
     })
+    delBtn.className = "fas fa-trash text-danger";
+    buttons.appendChild(delBtn);
+    studentRowElement.append(buttons);
     return studentRowElement;
   }
 }
