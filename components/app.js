@@ -34,11 +34,6 @@ class App {
       error: this.handleGetGradesError
     })
   }
-  start() {
-    this.getGrades();
-    this.gradeForm.onSubmit(this.createGrade);
-    this.gradeForm.onDeleteClick(this.deleteGrade);
-  }
 
   createGrade(name, course, grade) {
     $.ajax({
@@ -76,4 +71,9 @@ class App {
     this.getGrades();
   }
 
+  start() {
+    this.getGrades();
+    this.gradeForm.onSubmit(this.createGrade);
+    this.gradeTable.onDeleteClick(this.deleteGrade);
+  }
 }
