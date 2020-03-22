@@ -1,15 +1,20 @@
 class GradeTable {
-  constructor(tableElement) {
+  constructor(tableElement, noGradesElement) {
     this.tableElement = tableElement;
+    this.noGradesElement = noGradesElement;
   }
 
   updateGrades(grades) {
-    // console.log(grades);
     var tbody = this.tableElement.querySelector("tbody");
-    tbody.innerHTML = "";
-
-    for (var student of grades) {
-      tbody.append(this.renderGradeRow(student, this.deleteGrade));
+    if (grades.length == 0) {
+      tbody.innerHTML = "";
+      this.noGradesElement.classList.remove("d-none");
+    } else {
+      tbody.innerHTML = "";
+      for (var student of grades) {
+        tbody.append(this.renderGradeRow(student, this.deleteGrade));
+      }
+      this.noGradesElement.classList.add("d-none");
     }
   }
 
