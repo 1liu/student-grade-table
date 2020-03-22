@@ -21,6 +21,9 @@ class App {
     this.createGrade = this.createGrade.bind(this);
     this.handleCreateGradeError = this.handleCreateGradeError.bind(this);
     this.handleCreateGradeSuccess = this.handleCreateGradeSuccess.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
+    this.handleDeleteGradeError = this.handleDeleteGradeError(this);
+    this.handleDeleteGradeSuccess = this.handleDeleteGradeSuccess(this);
   }
   getGrades() {
     $.ajax({
@@ -34,6 +37,7 @@ class App {
   start() {
     this.getGrades();
     this.gradeForm.onSubmit(this.createGrade);
+    this.gradeForm.onDeleteClick(this.deleteGrade);
   }
 
   createGrade(name, course, grade) {
@@ -59,4 +63,17 @@ class App {
   handleCreateGradeSuccess() {
     this.getGrades();
   }
+
+  deleteGrade(id){
+    console.log(id);
+  }
+
+  handleDeleteGradeError(error){
+    console.error(error);
+  }
+
+  handleDeleteGradeSuccess(){
+    this.getGrades();
+  }
+
 }
