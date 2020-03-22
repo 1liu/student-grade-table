@@ -12,10 +12,10 @@
 <header>
   <div class="container">
     <div class="row">
-      <div class="col-8">
+      <div class="col-md-8">
         <h2>Student Grade Table</h2>
       </div>
-      <div class="col-4">
+      <div class="col-md-4">
         <h2>Average Grade: <span class="badge badge-secondary">84</span></h2>
       </div>
     </div>
@@ -25,8 +25,8 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-8">
-        <table class="table table-bordered table-striped">
+      <div class="col-md-8">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col">Student Name</th>
@@ -40,9 +40,11 @@
         <p class="noGradeEl d-none">No Grades Recorded</p>
       </div>
 
-      <form class="gradeForm col-4">
-        <div></div>
-        <div><h3 class="formTitle">Add Grade</h3></div>
+      <form class="gradeForm col-md-4">
+        <!-- <div></div> -->
+        <div>
+          <h3 class="formTitle">Add Grade</h3>
+        </div>
         <div class="name row">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -63,29 +65,24 @@
             <input type="text" id="grade" name="grade" value="" placeholder="Grade" size="30">
           </div>
           <div class="button row">
-            <div class="col-4">
-            </div>
-            <div class="col-4">
+            <div class="mr-3">
               <button id="addButton" type="submit" class="btn btn-success">Add</button>
             </div>
-            <div class="col-4">
-              <button id="cancelButton" type="reset" class="btn btn-light"">Cancel</button>
+            <div class="mr-3">
+              <button id="cancelButton" type="reset" class="btn btn-light">Cancel</button>
             </div>
           </div>
         </div>
       </form>
     </div>
-
-
-
-
-    <!--  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script src="components/grade-form.js"></script>
-    <script src="components/page-header.js"></script>
-    <script src="components/grade-table.js"></script>
-    <script src="components/app.js"></script>
-    <script src="main.js"></script>
+  </div>
+  <!--  -->
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <script src="components/grade-form.js"></script>
+  <script src="components/page-header.js"></script>
+  <script src="components/grade-table.js"></script>
+  <script src="components/app.js"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>

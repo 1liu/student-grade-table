@@ -38,17 +38,18 @@ class GradeTable {
     studentRowElement.append(course);
     studentRowElement.append(grade);
     var buttons = document.createElement('td');
+    buttons.className = "d-flex justify-content-end";
     var editBtn = document.createElement('i');
     editBtn.addEventListener("click", function () {
       editGradeClicked(data);
     })
-    editBtn.className = "fas fa-edit text-success";
+    editBtn.className = "fas fa-edit text-success ml-3";
     buttons.appendChild(editBtn);
     var delBtn = document.createElement('i');
     delBtn.addEventListener("click", function () {
       deleteGrade(data.id);
     })
-    delBtn.className = "fas fa-trash text-danger";
+    delBtn.className = "fas fa-trash text-danger ml-3";
     buttons.appendChild(delBtn);
     studentRowElement.append(buttons);
     return studentRowElement;

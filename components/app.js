@@ -15,9 +15,9 @@ class App {
     this.editGrade = this.editGrade.bind(this);
     this.handleEditGradeError = this.handleEditGradeError.bind(this);
     this.handleEditGradeSuccess = this.handleEditGradeSuccess.bind(this);
-
     this.editGradeClicked = this.editGradeClicked.bind(this);
   }
+
   getGrades() {
     $.ajax({
       method: "GET",
@@ -31,6 +31,7 @@ class App {
   handleGetGradesError(error) {
     console.error(error);
   }
+
   handleGetGradesSuccess(grades) {
     this.gradeTable.updateGrades(grades);
     var sum = 0;
@@ -41,6 +42,7 @@ class App {
     this.pageHeader.updateAverage(avg);
 
   }
+
   createGrade(name, course, grade) {
     $.ajax({
       method: "POST",
@@ -58,7 +60,6 @@ class App {
       error: this.handleCreateGradeError
     })
   }
-
 
   handleCreateGradeError(error) {
     console.error(error);
@@ -85,6 +86,7 @@ class App {
   handleDeleteGradeError(error) {
     console.error(error);
   }
+
   handleDeleteGradeSuccess() {
     this.getGrades();
   }
@@ -95,7 +97,7 @@ class App {
       url: "https://sgt.lfzprototypes.com/api/grades/" + id,
       headers: { "X-Access-Token": "xDx3SQaY" },
       data: {
-        "name": grade,
+        "name": name,
         "course": course,
         "grade": grade
       },
@@ -106,7 +108,6 @@ class App {
       error: this.handleEditGradeError,
     })
   }
-
 
   handleEditGradeError(error) {
     console.error(error);

@@ -17,10 +17,11 @@ class GradeForm {
     var formData = new FormData(event.target);
     if (this.gradeNeedsEdit) {
       this.editGrade(this.gradeNeedsEdit.id,formData.get('name'), formData.get('course'), formData.get('grade'));
+
     } else {
       this.createGrade(formData.get('name'), formData.get('course'), formData.get('grade'));
     }
-
+    this.resetForm(event);
   }
 
   handleCancel(event) {
