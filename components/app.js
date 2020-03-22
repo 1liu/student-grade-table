@@ -1,6 +1,8 @@
 class App {
 
   constructor(gradeTable, pageHeader, gradeForm) {
+    this.grades = null;
+    this.deleteId = null;
     this.gradeTable = gradeTable;
     this.pageHeader = pageHeader;
     this.gradeForm = gradeForm;
@@ -33,13 +35,8 @@ class App {
   }
 
   handleGetGradesSuccess(grades) {
-    this.gradeTable.updateGrades(grades);
-    var sum = 0;
-    for (var student of grades) {
-      sum += student.grade;
-    }
-    var avg = sum / grades.length;
-    this.pageHeader.updateAverage(avg);
+    this.grades = grades;
+    this.update();
 
   }
 
@@ -65,14 +62,18 @@ class App {
     console.error(error);
   }
 
-  handleCreateGradeSuccess() {
-    this.getGrades();
+  handleCreateGradeSuccess(addedGrade) {
+    console.log("test:", addedGrade);
+    this.addedGrade = addedGrade;
+    this.grades.push(addedGrade);
+    this.update();
   }
 
-  deleteGrade(id) {
+  deleteGrade(deleteGrade) {
+    this.deleteId = deleteGrade.id;
     $.ajax({
       method: "DELETE",
-      url: "https://sgt.lfzprototypes.com/api/grades/" + id,
+      url: "https://sgt.lfzprototypes.com/api/grades/" + this.deleteId,
       headers: { "X-Access-Token": "xDx3SQaY" },
       complete: function () {
         console.log("Grade Deleted");
@@ -88,7 +89,15 @@ class App {
   }
 
   handleDeleteGradeSuccess() {
-    this.getGrades();
+    // this.getGrades();
+    for (let i = 0; i < this.grades.length; i++) {
+      if (this.grades[i].id === this.deleteId) {
+        this.grades.splice(i, 1);
+        this.deleteId = null;
+        break;
+      }
+    }
+    this.update();
   }
 
   editGrade(id, name, course, grade) {
@@ -113,12 +122,35 @@ class App {
     console.error(error);
   }
 
-  handleEditGradeSuccess() {
-    this.getGrades();
+  handleEditGradeSuccess(editedGrade) {
+    console.log("test:", editedGrade);
+    for (let i = 0; i < this.grades.length; i++) {
+      if (this.grades[i].id == editedGrade.id) {
+        this.grades[i] = editedGrade;
+      }
+    }
+
+    this.gradeTable.updateGrades(this.grades);
+    var sum = 0;
+    for (var student of this.grades) {
+      sum += Number(student.grade);
+    }
+    var avg = sum / this.grades.length;
+    this.pageHeader.updateAverage(avg);
   }
 
   editGradeClicked(data) {
     this.gradeForm.switchForm(data);
+  }
+
+  update() {
+    this.gradeTable.updateGrades(this.grades);
+    var sum = 0;
+    for (var student of this.grades) {
+      sum += Number(student.grade);
+    }
+    var avg = sum / this.grades.length;
+    this.pageHeader.updateAverage(avg);
   }
 
   start() {

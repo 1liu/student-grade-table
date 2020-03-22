@@ -44,7 +44,7 @@ class GradeForm {
   resetForm(event){
     this.gradeNeedsEdit = null;
     this.formElement.querySelector('.formTitle').textContent = "Add Grade";
-    this.formElement.querySelector('.btn-success').value = "Add";
+    this.formElement.querySelector('.btn-success').textContent = "Add";
     event.target.reset();
   }
 
