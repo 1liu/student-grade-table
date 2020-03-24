@@ -31,18 +31,18 @@ class GradeTable {
     // studentRowElement.className = "row";
     var studentName = document.createElement('td');
     studentName.textContent = data.name;
-    // studentName.classList.add('col-3');
+    studentName.classList.add('col-3');
     var course = document.createElement('td');
     course.textContent = data.course;
-    // course.classList.add('col-3');
+    course.classList.add('col-3');
     var grade = document.createElement('td');
     grade.textContent = data.grade;
-    // grade.classList.add('col-3');
+    grade.classList.add('col-3');
     studentRowElement.append(studentName);
     studentRowElement.append(course);
     studentRowElement.append(grade);
     var buttons = document.createElement('td');
-    buttons.className = "d-flex justify-content-end";
+    buttons.className = "d-flex justify-content-end col-3";
     var editBtn = document.createElement('i');
     editBtn.addEventListener("click", function () {
       editGradeClicked(data);

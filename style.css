@@ -2,16 +2,50 @@
   margin-bottom: 1rem;
 } */
 
+.table-fixed tbody {
+  height: 300px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.table-fixed tr, .table-fixed td {
+  display: block;
+}
+
+td {
+  height: 50px;
+}
+
+.table-fixed tbody td, .table-fixed thead>tr>th {
+  float: left;
+  position: relative;
+}
+
 .input-group-prepend {
   width: 40px;
+}
+
+@media screen and (max-device-width: 414px) and (max-device-height: 812px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  th {
+    height: 75px;
+  }
+  .table-fixed tbody {
+    height: 350px;
+  }
 }
 
 @media screen and (max-device-width: 414px) and (max-device-height: 667px) {
   h2 {
     font-size: 1.5rem;
   }
+  th {
+    height: 75px;
+  }
   .table-fixed tbody {
-    height: 270px;
+    height: 250px;
   }
 }
 
@@ -21,6 +55,9 @@
   }
   h2 {
     font-size: 1.5rem;
+  }
+  th {
+    height: 75px;
   }
   input {
     width: 170px;
@@ -36,6 +73,9 @@
   }
   h2 {
     font-size: 1.5rem;
+  }
+  th {
+    height: 75px;
   }
   .table-fixed tbody {
     height: 200px;
