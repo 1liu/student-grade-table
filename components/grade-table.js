@@ -28,12 +28,16 @@ class GradeTable {
 
   renderGradeRow(data, deleteGrade, editGradeClicked) {
     var studentRowElement = document.createElement('tr');
+    // studentRowElement.className = "row";
     var studentName = document.createElement('td');
     studentName.textContent = data.name;
+    // studentName.classList.add('col-3');
     var course = document.createElement('td');
     course.textContent = data.course;
+    // course.classList.add('col-3');
     var grade = document.createElement('td');
     grade.textContent = data.grade;
+    // grade.classList.add('col-3');
     studentRowElement.append(studentName);
     studentRowElement.append(course);
     studentRowElement.append(grade);

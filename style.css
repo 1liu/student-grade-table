@@ -1,8 +1,62 @@
-
-.gradeForm .row {
+/* .gradeForm .row {
   margin-bottom: 1rem;
+} */
+
+.input-group-prepend {
+  width: 40px;
 }
 
-.input-group-prepend{
-  width: 40px;
+@media screen and (max-device-width: 414px) and (max-device-height: 667px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  .table-fixed tbody {
+    height: 270px;
+  }
+}
+
+@media only screen and ( min-device-width:667px) and (max-device-width: 767px) {
+  .container, .container-sm, .container-md {
+    max-width: 660px;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  input {
+    width: 170px;
+  }
+  .table-fixed tbody {
+    height: 250px;
+  }
+}
+
+@media (min-device-width: 768px) and (max-device-width: 812px) and (min-device-height:375px) {
+  .container, .container-sm, .container-md {
+    max-width: 760px;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .table-fixed tbody {
+    height: 200px;
+  }
+}
+
+@media (min-device-width: 768px) and (min-device-width:400px) {
+  .table-fixed tbody {
+    height: 70vh;
+  }
+}
+
+.table-fixed thead {
+  width: 100%;
+}
+
+.table-fixed tbody {
+  overflow-y: auto;
+  width: 100%;
+}
+
+.table-fixed thead, .table-fixed tbody {
+  display: block;
 }
